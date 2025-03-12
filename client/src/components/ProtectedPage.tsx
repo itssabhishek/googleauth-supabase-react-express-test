@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
+import {API_URL} from "../utils/constants";
 
 const ProtectedPage: React.FC = () => {
   const [message, setMessage] = useState('');
@@ -14,7 +15,7 @@ const ProtectedPage: React.FC = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/protected', {
+      const response = await fetch(`${API_URL}//protected`, {
         headers: {
           Authorization: `Bearer ${session?.access_token}`,
         },
