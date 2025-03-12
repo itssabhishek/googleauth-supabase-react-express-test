@@ -1,15 +1,13 @@
 import React from 'react';
 import { supabase } from '../services/supabase';
-import {API_URL} from "../utils/constants";
 
 
 const LoginPage: React.FC = () => {
   const handleSignIn = async () => {
-    console.log('Signing in with Google', API_URL);
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${API_URL}/protected`,
+        redirectTo: `${window.origin}/protected`,
       },
     });
 
