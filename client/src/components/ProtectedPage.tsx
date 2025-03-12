@@ -15,7 +15,7 @@ const ProtectedPage: React.FC = () => {
     }
 
     try {
-      const response = await fetch(`${API_URL}//protected`, {
+      const response = await fetch(`${API_URL}/protected`, {
         headers: {
           Authorization: `Bearer ${session?.access_token}`,
         },
